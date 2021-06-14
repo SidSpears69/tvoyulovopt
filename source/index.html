@@ -7,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="vendors/graph-modal/graph-modal.css">
+  <link rel="stylesheet" href="css/style.min.css">
   <title>Document</title>
 </head>
 
@@ -16,7 +18,8 @@
     <div class="page-header__top">
       <div class="page-header__wrapper wrapper">
         <a class="page-header__logo logo">
-          <img src="img/logo.svg" alt="ТвойУловОпт - лучший выбор в интернете" class="logo__img" width="186" height="50">
+          <img src="img/logo.svg" alt="ТвойУловОпт - лучший выбор в интернете" class="logo__img" width="186"
+            height="50">
           <span class="visually-hidden">На главную</span>
         </a>
         <nav class="page-header__menu">
@@ -39,13 +42,15 @@
           </ul>
         </nav>
         <ul class="page-header__users menu">
-            <li class="menu__item">
-              <a href="javascript:void(0)" class="menu__link menu__link--user menu__link--enter">Вход</a>
-            </li>
-            <li class="menu__item">
-              <a href="javascript:void(0)" class="menu__link menu__link--user menu__link--register">Регистрация</a>
-            </li>
-          </ul>
+          <li class="menu__item">
+            <a href="javascript:void(0)" class="menu__link menu__link--user menu__link--enter" data-graph-path="popup"
+              data-graph-animation="fadeInUp" data-graph-speed="500" aria-controls="popup" aria-haspopup="true"
+              aria-expanded="false">Вход</a>
+          </li>
+          <li class="menu__item">
+            <a href="javascript:void(0)" class="menu__link menu__link--user menu__link--register">Регистрация</a>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="page-header__bottom wrapper">
@@ -65,15 +70,81 @@
       <form action="javascript:void(0);" class="page-main__search search">
         <div class="search__wrapper custom-search">
           <label class="custom-search__field-input">
-            <input type="search" class="custom-search__input" name="search_input" placeholder="Введите артикул или название товара">
+            <input type="search" class="custom-search__input" name="search_input"
+              placeholder="Введите артикул или название товара">
             <span class="visually-hidden">Введите артикул или название товара</span>
           </label>
-          <label class="custom-search__selector">
-            <select class="custom-search__select" name="search_select">
-              <option>Категория</option>
-            </select>
-            <span class="visually-hidden">Категория</span>
-          </label>
+          <div class="custom-search__selector">
+            <div class="custom-search__select custom-select">
+              <button class="custom-select__toggle" type="button" aria-haspopup="true" aria-expanded="false"
+                id="select-toggle">Категория</button>
+              <ul class="custom-select__list" aria-labelledby="select-toggle">
+                <li class="custom-select__item">
+                  <label class="custom-select__option">
+                    <input type="radio" name="search_category" value="Лодки"
+                      class="custom-select__radio visually-hidden">
+                    <span class="custom-select__value">Лодки</span>
+                  </label>
+                </li>
+                <li class="custom-select__item">
+                  <label class="custom-select__option">
+                    <input type="radio" name="search_category" value="Рыболовные сети"
+                      class="custom-select__radio visually-hidden">
+                    <span class="custom-select__value">Рыболовные сети</span>
+                  </label>
+                </li>
+                <li class="custom-select__item">
+                  <label class="custom-select__option">
+                    <input type="radio" name="search_category" value="Сетеполотна и дели"
+                      class="custom-select__radio visually-hidden">
+                    <span class="custom-select__value">Сетеполотна и дели</span>
+                  </label>
+                </li>
+                <li class="custom-select__item">
+                  <label class="custom-select__option">
+                    <input type="radio" name="search_category" value="Канаты и шнуры"
+                      class="custom-select__radio visually-hidden">
+                    <span class="custom-select__value">Канаты и шнуры</span>
+                  </label>
+                </li>
+                <li class="custom-select__item">
+                  <label class="custom-select__option">
+                    <input type="radio" name="search_category" value="Нитки"
+                      class="custom-select__radio visually-hidden">
+                    <span class="custom-select__value">Нитки</span>
+                  </label>
+                </li>
+                <li class="custom-select__item">
+                  <label class="custom-select__option">
+                    <input type="radio" name="search_category" value="Рыболовная леска и шнуры"
+                      class="custom-select__radio visually-hidden">
+                    <span class="custom-select__value">Рыболовная леска и шнуры</span>
+                  </label>
+                </li>
+                <li class="custom-select__item">
+                  <label class="custom-select__option">
+                    <input type="radio" name="search_category" value="Рыболовные катушки"
+                      class="custom-select__radio visually-hidden">
+                    <span class="custom-select__value">Рыболовные катушки</span>
+                  </label>
+                </li>
+                <li class="custom-select__item">
+                  <label class="custom-select__option">
+                    <input type="radio" name="search_category" value="Синтетические материалы"
+                      class="custom-select__radio visually-hidden">
+                    <span class="custom-select__value">Синтетические материалы</span>
+                  </label>
+                </li>
+                <li class="custom-select__item">
+                  <label class="custom-select__option">
+                    <input type="radio" name="search_category" value="Синтетические материалы"
+                      class="custom-select__radio visually-hidden">
+                    <span class="custom-select__value">Защитная обувь и одежда</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
         <button type="submit" class="search__submit">Поиск</button>
       </form>
@@ -131,147 +202,200 @@
           <h2 class="products__title">Товары</h2>
           <div class="products__controls">
             <button class="products__button products__button--prev">
-              <img src="img/icons/icon-arrow.svg" alt="" aria-hidden="true" class="products__icon" width="18"
-                height="32">
+              <svg role="img" aria-hidden="true" class="products__icon" width="18" height="32">
+                <use xlink:href="img/sprite.svg#icon-arrow"></use>
+              </svg>
               <span class="visually-hidden">К предыдущим товарам</span>
             </button>
             <button class="products__button products__button--next">
-              <img src="img/icons/icon-arrow.svg" alt="" aria-hidden="true" class="products__icon" width="18"
-                height="32">
+              <svg role="img" aria-hidden="true" class="products__icon" width="18" height="32">
+                <use xlink:href="img/sprite.svg#icon-arrow"></use>
+              </svg>
               <span class="visually-hidden">К следующим товарам</span>
             </button>
           </div>
         </div>
-        <ul class="products__list">
-          <li class="products__item">
-            <article class="products__card card-product">
-              <a href="javascript:void(0);" class="card-product__link">
-                <h3 class="card-product__title">Леска Твой Улов Fishing Line 100 м</h3>
-                <img src="img/product1.png" alt="Леска" class="card-product__img" width="243" height="243">
-              </a>
-              <button class="card-product__button">
-                <img src="img/icons/icon-bookmark.svg" alt="" aria-hidden="true" class="card-product__icon">
-                <span class="visually-hidden">Добавить в избранное</span>
-              </button>
-            </article>
-          </li>
-          <li class="products__item">
-            <article class="products__card card-product">
-              <a href="javascript:void(0);" class="card-product__link">
-                <h3 class="card-product__title">Плетеный шнур Твой Улов PE Jigger 100 м</h3>
-                <img src="img/product2.png" alt="Плетеный шнур" class="card-product__img" width="243" height="243">
-              </a>
-              <button class="card-product__button">
-                <img src="img/icons/icon-bookmark.svg" alt="" aria-hidden="true" class="card-product__icon">
-                <span class="visually-hidden">Добавить в избранное</span>
-              </button>
-            </article>
-          </li>
-          <li class="products__item">
-            <article class="products__card card-product">
-              <a href="javascript:void(0);" class="card-product__link">
-                <h3 class="card-product__title">Колеблющаяся блесна "Лидер" 50 г</h3>
-                <img src="img/product3.png" alt="Колеблющаяся блесна" class="card-product__img" width="243" height="243">
-              </a>
-              <button class="card-product__button">
-                <img src="img/icons/icon-bookmark.svg" alt="" aria-hidden="true" class="card-product__icon">
-                <span class="visually-hidden">Добавить в избранное</span>
-              </button>
-            </article>
-          </li>
-          <li class="products__item">
-            <article class="products__card card-product">
-              <a href="javascript:void(0);" class="card-product__link">
-                <h3 class="card-product__title">Навигатор Garmin DriveSmart 61 RUS LMT</h3>
-                <img src="img/product4.png" alt="Навигатор" class="card-product__img" width="243" height="243">
-              </a>
-              <button class="card-product__button">
-                <img src="img/icons/icon-bookmark.svg" alt="" aria-hidden="true" class="card-product__icon">
-                <span class="visually-hidden">Добавить в избранное</span>
-              </button>
-            </article>
-          </li>
-          <li class="products__item">
-            <article class="products__card card-product">
-              <a href="javascript:void(0);" class="card-product__link">
-                <h3 class="card-product__title">Лодка ПВХ "Чирок-270AD"</h3>
-                <img src="img/product5.png" alt="Лодка" class="card-product__img" width="243" height="243">
-              </a>
-              <button class="card-product__button">
-                <img src="img/icons/icon-bookmark.svg" alt="" aria-hidden="true" class="card-product__icon">
-                <span class="visually-hidden">Добавить в избранное</span>
-              </button>
-            </article>
-          </li>
-          <li class="products__item">
-            <article class="products__card card-product">
-              <a href="javascript:void(0);" class="card-product__link">
-                <h3 class="card-product__title">Катушка Daiwa Exceler 20 LT</h3>
-                <img src="img/product6.png" alt="Катушка" class="card-product__img" width="243" height="243">
-              </a>
-              <button class="card-product__button">
-                <img src="img/icons/icon-bookmark.svg" alt="" aria-hidden="true" class="card-product__icon">
-                <span class="visually-hidden">Добавить в избранное</span>
-              </button>
-            </article>
-          </li>
-          <li class="products__item">
-            <article class="products__card card-product">
-              <a href="javascript:void(0);" class="card-product__link">
-                <h3 class="card-product__title">Фонарь Armytek C1 Tiara USB XP-L</h3>
-                <img src="img/product7.png" alt="Фонарь" class="card-product__img" width="243" height="243">
-              </a>
-              <button class="card-product__button">
-                <img src="img/icons/icon-bookmark.svg" alt="" aria-hidden="true" class="card-product__icon">
-                <span class="visually-hidden">Добавить в избранное</span>
-              </button>
-            </article>
-          </li>
-          <li class="products__item">
-            <article class="products__card card-product">
-              <a href="javascript:void(0);" class="card-product__link">
-                <h3 class="card-product__title">Леска UniLine в бобинах 250 г</h3>
-                <img src="img/product8.png" alt="Леска" class="card-product__img" width="243" height="243">
-              </a>
-              <button class="card-product__button">
-                <img src="img/icons/icon-bookmark.svg" alt="" aria-hidden="true" class="card-product__icon">
-                <span class="visually-hidden">Добавить в избранное</span>
-              </button>
-            </article>
-          </li>
-          <li class="products__item">
-            <article class="products__card card-product">
-              <a href="javascript:void(0);" class="card-product__link">
-                <h3 class="card-product__title">Рыболовный костюм Fisherman (Рокон)</h3>
-                <img src="img/product9.png" alt="Рыболовный костюм" class="card-product__img" width="243" height="243">
-              </a>
-              <button class="card-product__button">
-                <img src="img/icons/icon-bookmark.svg" alt="" aria-hidden="true" class="card-product__icon">
-                <span class="visually-hidden">Добавить в избранное</span>
-              </button>
-            </article>
-          </li>
-          <li class="products__item">
-            <article class="products__card card-product">
-              <a href="javascript:void(0);" class="card-product__link">
-                <h3 class="card-product__title">Леска Shock Leader 30 м</h3>
-                <img src="img/product10.png" alt="Леска" class="card-product__img" width="243" height="243">
-              </a>
-              <button class="card-product__button">
-                <img src="img/icons/icon-bookmark.svg" alt="" aria-hidden="true" class="card-product__icon">
-                <span class="visually-hidden">Добавить в избранное</span>
-              </button>
-            </article>
-          </li>
-        </ul>
+        <div class="swiper-container products__slider">
+          <div class="swiper-wrapper products__list">
+            <div class="swiper-slide products__item">
+              <article class="products__card card-product">
+                <a href="javascript:void(0);" class="card-product__link">
+                  <h3 class="card-product__title">Леска Твой Улов Fishing Line 100 м</h3>
+                  <img src="img/product1.png" alt="Леска" class="card-product__img" width="243" height="243">
+                </a>
+                <button class="card-product__button">
+                  <svg role="img" aria-hidden="true" class="card-product__icon" width="16" height="16" stroke="#DFDFDF"
+                    fill="none">
+                    <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                  </svg>
+                  <span class="visually-hidden">Добавить в избранное</span>
+                </button>
+              </article>
+            </div>
+            <div class="swiper-slide products__item">
+              <article class="products__card card-product">
+                <a href="javascript:void(0);" class="card-product__link">
+                  <h3 class="card-product__title">Плетеный шнур Твой Улов PE Jigger 100 м</h3>
+                  <img src="img/product2.png" alt="Плетеный шнур" class="card-product__img" width="243" height="243">
+                </a>
+                <button class="card-product__button">
+                  <svg role="img" aria-hidden="true" class="card-product__icon" width="16" height="16" stroke="#DFDFDF"
+                    fill="none">
+                    <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                  </svg>
+                  <span class="visually-hidden">Добавить в избранное</span>
+                </button>
+              </article>
+            </div>
+            <div class="swiper-slide products__item">
+              <article class="products__card card-product">
+                <a href="javascript:void(0);" class="card-product__link">
+                  <h3 class="card-product__title">Колеблющаяся блесна "Лидер" 50 г</h3>
+                  <img src="img/product3.png" alt="Колеблющаяся блесна" class="card-product__img" width="243"
+                    height="243">
+                </a>
+                <button class="card-product__button">
+                  <svg role="img" aria-hidden="true" class="card-product__icon" width="16" height="16" stroke="#DFDFDF"
+                    fill="none">
+                    <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                  </svg>
+                  <span class="visually-hidden">Добавить в избранное</span>
+                </button>
+              </article>
+            </div>
+            <div class="swiper-slide products__item">
+              <article class="products__card card-product">
+                <a href="javascript:void(0);" class="card-product__link">
+                  <h3 class="card-product__title">Навигатор Garmin DriveSmart 61 RUS LMT</h3>
+                  <img src="img/product4.png" alt="Навигатор" class="card-product__img" width="243" height="243">
+                </a>
+                <button class="card-product__button">
+                  <svg role="img" aria-hidden="true" class="card-product__icon" width="16" height="16" stroke="#DFDFDF"
+                    fill="none">
+                    <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                  </svg>
+                  <span class="visually-hidden">Добавить в избранное</span>
+                </button>
+              </article>
+            </div>
+            <div class="swiper-slide products__item">
+              <article class="products__card card-product">
+                <a href="javascript:void(0);" class="card-product__link">
+                  <h3 class="card-product__title">Лодка ПВХ "Чирок-270AD"</h3>
+                  <img src="img/product5.png" alt="Лодка" class="card-product__img" width="243" height="243">
+                </a>
+                <button class="card-product__button">
+                  <svg role="img" aria-hidden="true" class="card-product__icon" width="16" height="16" stroke="#DFDFDF"
+                    fill="none">
+                    <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                  </svg>
+                  <span class="visually-hidden">Добавить в избранное</span>
+                </button>
+              </article>
+            </div>
+            <div class="swiper-slide products__item">
+              <article class="products__card card-product">
+                <a href="javascript:void(0);" class="card-product__link">
+                  <h3 class="card-product__title">Катушка Daiwa Exceler 20 LT</h3>
+                  <img src="img/product6.png" alt="Катушка" class="card-product__img" width="243" height="243">
+                </a>
+                <button class="card-product__button">
+                  <svg role="img" aria-hidden="true" class="card-product__icon" width="16" height="16" stroke="#DFDFDF"
+                    fill="none">
+                    <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                  </svg>
+                  <span class="visually-hidden">Добавить в избранное</span>
+                </button>
+              </article>
+            </div>
+            <div class="swiper-slide products__item">
+              <article class="products__card card-product">
+                <a href="javascript:void(0);" class="card-product__link">
+                  <h3 class="card-product__title">Фонарь Armytek C1 Tiara USB XP-L</h3>
+                  <img src="img/product7.png" alt="Фонарь" class="card-product__img" width="243" height="243">
+                </a>
+                <button class="card-product__button">
+                  <svg role="img" aria-hidden="true" class="card-product__icon" width="16" height="16" stroke="#DFDFDF"
+                    fill="none">
+                    <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                  </svg>
+                  <span class="visually-hidden">Добавить в избранное</span>
+                </button>
+              </article>
+            </div>
+            <div class="swiper-slide products__item">
+              <article class="products__card card-product">
+                <a href="javascript:void(0);" class="card-product__link">
+                  <h3 class="card-product__title">Леска UniLine в бобинах 250 г</h3>
+                  <img src="img/product8.png" alt="Леска" class="card-product__img" width="243" height="243">
+                </a>
+                <button class="card-product__button">
+                  <svg role="img" aria-hidden="true" class="card-product__icon" width="16" height="16" stroke="#DFDFDF"
+                    fill="none">
+                    <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                  </svg>
+                  <span class="visually-hidden">Добавить в избранное</span>
+                </button>
+              </article>
+            </div>
+            <div class="swiper-slide products__item">
+              <article class="products__card card-product">
+                <a href="javascript:void(0);" class="card-product__link">
+                  <h3 class="card-product__title">Рыболовный костюм Fisherman (Рокон)</h3>
+                  <img src="img/product9.png" alt="Рыболовный костюм" class="card-product__img" width="243"
+                    height="243">
+                </a>
+                <button class="card-product__button">
+                  <svg role="img" aria-hidden="true" class="card-product__icon" width="16" height="16" stroke="#DFDFDF"
+                    fill="none">
+                    <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                  </svg>
+                  <span class="visually-hidden">Добавить в избранное</span>
+                </button>
+              </article>
+            </div>
+            <div class="swiper-slide products__item">
+              <article class="products__card card-product">
+                <a href="javascript:void(0);" class="card-product__link">
+                  <h3 class="card-product__title">Леска Shock Leader 30 м</h3>
+                  <img src="img/product10.png" alt="Леска" class="card-product__img" width="243" height="243">
+                </a>
+                <button class="card-product__button">
+                  <svg role="img" aria-hidden="true" class="card-product__icon" width="16" height="16" stroke="#DFDFDF"
+                    fill="none">
+                    <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                  </svg>
+                  <span class="visually-hidden">Добавить в избранное</span>
+                </button>
+              </article>
+            </div>
+            <div class="swiper-slide products__item">
+              <article class="products__card card-product">
+                <a href="javascript:void(0);" class="card-product__link">
+                  <h3 class="card-product__title">Леска Shock Leader 30 м</h3>
+                  <img src="img/product10.png" alt="Леска" class="card-product__img" width="243" height="243">
+                </a>
+                <button class="card-product__button">
+                  <svg role="img" aria-hidden="true" class="card-product__icon" width="16" height="16" stroke="#DFDFDF"
+                    fill="none">
+                    <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                  </svg>
+                  <span class="visually-hidden">Добавить в избранное</span>
+                </button>
+              </article>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <div class="page-main__bottom wrapper">
       <div class="page-main__articles">
         <section class="articles">
-          <div class="articles__top">
+          <div class="articles__header">
             <h2 class="articles__title">Новости</h2>
-            <a href="javascript:void(0);" class="articles__all">Все новости</a>
+            <div class="articles__all">
+              <a href="javascript:void(0);" class="articles__link">Все новости</a>
+            </div>
           </div>
           <ul class="articles__list">
             <li class="articles__item">
@@ -280,11 +404,11 @@
                   <div class="card-article__top">
                     <div class="card-article__wrapper">
                       <h3 class="card-article__title">Режим работы компании на майские праздники</h3>
-                      <time datetime="2021-04-04">4.04.2021</time>
+                      <time datetime="2021-04-04" class="card-article__date">4.04.2021</time>
                     </div>
-                    <img src="img/article1.jpg" alt="Часы" width="83" height="83">
+                    <img src="img/article1.jpg" alt="Часы" width="83" height="83" class="card-article__img">
                   </div>
-                  <p class="article__text">Повседневная практика показывает, что семантический разбор внешних
+                  <p class="card-article__text">Повседневная практика показывает, что семантический разбор внешних
                     противодействий предоставляет широкие возможности для дальнейших направлений развития...</p>
                 </a>
               </article>
@@ -295,11 +419,12 @@
                   <div class="card-article__top">
                     <div class="card-article__wrapper">
                       <h3 class="card-article__title">Постоянный количественный рост не позволил союзу развалиться</h3>
-                      <time datetime="2021-02-01">01.02.2021</time>
+                      <time datetime="2021-02-01" class="card-article__date">01.02.2021</time>
                     </div>
-                    <img src="img/article2.jpg" alt="Ловля рыбы" width="83" height="83">
+                    <img src="img/article2.jpg" alt="Ловля рыбы" width="83" height="83" class="card-article__img">
                   </div>
-                  <p class="article__text">Лишь независимые государства объявлены нарушающими общечеловеческие нормы
+                  <p class="card-article__text">Лишь независимые государства объявлены нарушающими общечеловеческие
+                    нормы
                     этики
                     и морали...</p>
                 </a>
@@ -311,11 +436,12 @@
                   <div class="card-article__top">
                     <div class="card-article__wrapper">
                       <h3 class="card-article__title">Сейчас всё чаще звучит старческий скрип Амстердама</h3>
-                      <time datetime="2021-01-28">28.01.2021</time>
+                      <time datetime="2021-01-28" class="card-article__date">28.01.2021</time>
                     </div>
-                    <img src="img/article3.jpg" alt="Пойманная щука" width="83" height="83">
+                    <img src="img/article3.jpg" alt="Пойманная щука" width="83" height="83" class="card-article__img">
                   </div>
-                  <p class="article__text">В целом, конечно, постоянное информационно-пропагандистское обеспечение нашей
+                  <p class="card-article__text">В целом, конечно, постоянное информационно-пропагандистское обеспечение
+                    нашей
                     деятельности является качественно новой ступенью</p>
                 </a>
               </article>
@@ -326,11 +452,12 @@
                   <div class="card-article__top">
                     <div class="card-article__wrapper">
                       <h3 class="card-article__title">Помыслы поколения чисты</h3>
-                      <time datetime="2020-12-04">04.12.2020</time>
+                      <time datetime="2020-12-04" class="card-article__date">04.12.2020</time>
                     </div>
-                    <img src="img/article4.jpg" alt="Заброс удочки" width="83" height="83">
+                    <img src="img/article4.jpg" alt="Заброс удочки" width="83" height="83" class="card-article__img">
                   </div>
-                  <p class="article__text">Современные технологии достмигли такого уровня, что современная методология
+                  <p class="card-article__text">Современные технологии достмигли такого уровня, что современная
+                    методология
                     разработки, в своём классическом представлении, допускает внедрение</p>
                 </a>
               </article>
@@ -338,9 +465,11 @@
           </ul>
         </section>
         <section class="articles">
-          <div class="articles__top">
+          <div class="articles__header">
             <h2 class="articles__title">Статьи</h2>
-            <a href="javascript:void(0);" class="articles__all">Все статьи</a>
+            <div class="articles__all">
+              <a href="javascript:void(0);" class="articles__link">Все статьи</a>
+            </div>
           </div>
           <ul class="articles__list">
             <li class="articles__item">
@@ -349,11 +478,12 @@
                   <div class="card-article__top">
                     <div class="card-article__wrapper">
                       <h3 class="card-article__title">Провоцируем весеннюю щуку на атаку: 4 эффективных способа</h3>
-                      <time datetime="2021-04-04">4.04.2021</time>
+                      <time datetime="2021-04-04" class="card-article__date">4.04.2021</time>
                     </div>
-                    <img src="img/article5.jpg" alt="Щука" width="83" height="83">
+                    <img src="img/article5.jpg" alt="Щука" width="83" height="83" class="card-article__img">
                   </div>
-                  <p class="article__text">С приходом марта берет начало новый спиннинговый сезон, и многие рыболовы
+                  <p class="card-article__text">С приходом марта берет начало новый спиннинговый сезон, и многие
+                    рыболовы
                     спешат на ближайшие реки, где властвует половодье. Начало весны – это талый лед и... </p>
                 </a>
               </article>
@@ -364,11 +494,12 @@
                   <div class="card-article__top">
                     <div class="card-article__wrapper">
                       <h3 class="card-article__title">Отчет о рыбалке: весенняя ловля голавля на малой реке</h3>
-                      <time datetime="2021-04-25">25.04.2021</time>
+                      <time datetime="2021-04-25" class="card-article__date">25.04.2021</time>
                     </div>
-                    <img src="img/article6.jpg" alt="Рыбак" width="83" height="83">
+                    <img src="img/article6.jpg" alt="Рыбак" width="83" height="83" class="card-article__img">
                   </div>
-                  <p class="article__text">Из года в год мне удается бывать в живописных местах своей области. Несмотря
+                  <p class="card-article__text">Из года в год мне удается бывать в живописных местах своей области.
+                    Несмотря
                     на то, что река, протекающая вокруг небольшого городка с населением 30 000 человек...</p>
                 </a>
               </article>
@@ -379,11 +510,12 @@
                   <div class="card-article__top">
                     <div class="card-article__wrapper">
                       <h3 class="card-article__title">Весенний поиск речного карася</h3>
-                      <time datetime="2021-04-12">12.04.2021</time>
+                      <time datetime="2021-04-12" class="card-article__date">12.04.2021</time>
                     </div>
-                    <img src="img/article7.jpg" alt="Карась" width="83" height="83">
+                    <img src="img/article7.jpg" alt="Карась" width="83" height="83" class="card-article__img">
                   </div>
-                  <p class="article__text">Теплая весна – это большая возможность, прежде всего, для любителей ловли
+                  <p class="card-article__text">Теплая весна – это большая возможность, прежде всего, для любителей
+                    ловли
                     мирной рыбы. При благоприятной температуре воздуха и воды рыба начинает клевать...</p>
                 </a>
               </article>
@@ -394,11 +526,11 @@
                   <div class="card-article__top">
                     <div class="card-article__wrapper">
                       <h3 class="card-article__title">Разновидности мормышек, ловля на игру</h3>
-                      <time datetime="2021-03-13">13.03.2021</time>
+                      <time datetime="2021-03-13" class="card-article__date">13.03.2021</time>
                     </div>
-                    <img src="img/article8.jpg" alt="Мормышка" width="83" height="83">
+                    <img src="img/article8.jpg" alt="Мормышка" width="83" height="83" class="card-article__img">
                   </div>
-                  <p class="article__text">Большинство поклонников подледной рыбалки так или иначе сталкивалось с
+                  <p class="card-article__text">Большинство поклонников подледной рыбалки так или иначе сталкивалось с
                     мормышкой. Даже любители поплавочной удочки нередко используют металлическую...</p>
                 </a>
               </article>
@@ -408,105 +540,195 @@
       </div>
       <section class="partners">
         <h2 class="partners__title">Партнёры</h2>
-        <ul class="partners__wrapper">
+        <ul class="partners__list">
           <li class="partners__item">
             <a href="javascript:void(0)" class="partners__link">
-              <img src="img/chirok-1.svg" alt="Логотип Чирок" class="partners__img" width="141" height="34">
+              <img src="img/chirok.svg" alt="Логотип Чирок" class="partners__img" width="141" height="34">
               <span class="visually-hidden">Перейти на страницу производителя "Чирок"</span>
             </a>
           </li>
           <li class="partners__item">
             <a href="javascript:void(0)" class="partners__link">
-              <img src="img/tvoyulov-1.svg" alt="Логотип Твой Улов" class="partners__img" width="141" height="32">
+              <img src="img/tvoyulov.svg" alt="Логотип Твой Улов" class="partners__img" width="141" height="32">
               <span class="visually-hidden">Перейти на страницу производителя "Твой Улов"</span>
             </a>
           </li>
           <li class="partners__item">
             <a href="javascript:void(0)" class="partners__link">
-              <img src="img/momoi-1.svg" alt="Логотип Momoi" class="partners__img" width="111" height="38">
+              <img src="img/momoi.svg" alt="Логотип Momoi" class="partners__img" width="111" height="38">
               <span class="visually-hidden">Перейти на страницу производителя "Momoi"</span>
             </a>
           </li>
           <li class="partners__item">
             <a href="javascript:void(0)" class="partners__link">
-              <img src="img/daiwa-1.svg" alt="Логотип Daiwa" class="partners__img" width="141" height="22">
+              <img src="img/stinger.png" alt="Логотип Stinger" class="partners__img" width="101" height="46">
+              <span class="visually-hidden">Перейти на страницу производителя "Stinger"</span>
+            </a>
+          </li>
+          <li class="partners__item">
+            <a href="javascript:void(0)" class="partners__link">
+              <img src="img/daiwa.svg" alt="Логотип Daiwa" class="partners__img" width="141" height="22">
               <span class="visually-hidden">Перейти на страницу производителя "Daiwa"</span>
             </a>
           </li>
           <li class="partners__item">
             <a href="javascript:void(0)" class="partners__link">
-              <img src="img/allvega-1.png" alt="Логотип Allvega" class="partners__img" width="111" height="48">
+              <img src="img/allvega.png" alt="Логотип Allvega" class="partners__img" width="111" height="48">
               <span class="visually-hidden">Перейти на страницу производителя "Allvega"</span>
             </a>
           </li>
           <li class="partners__item">
             <a href="javascript:void(0)" class="partners__link">
-              <img src="img/petrokanat-1.svg" alt="Логотип Петроканат" class="partners__img" width="141" height="20">
+              <img src="img/petrokanat.svg" alt="Логотип Петроканат" class="partners__img" width="141" height="20">
               <span class="visually-hidden">Перейти на страницу производителя "Петроканат"</span>
             </a>
           </li>
-          <li class="partners__item">
-            <a href="javascript:void(0)" class="partners__link">
-              <img src="img/stinger-1.png" alt="Логотип Stinger" class="partners__img" width="101" height="46">
-              <span class="visually-hidden">Перейти на страницу производителя "Stinger"</span>
-            </a>
-          </li>
         </ul>
-        <a href="javascript:void(0)">
+        <a href="partners__banner">
           <img src="img/sale-banner.jpg" alt="Акции и скидки" width="289" height="376">
         </a>
       </section>
     </div>
+    <section class="modal modal--register">
+      <div class="modal__container modal__content" role="dialog" aria-modal="true" data-graph-target="popup" id="popup"
+      aria-labelledby="popup-title">
+        <div class="modal-content">
+          <div class="modal__header">
+            <h2 class="modal__title modal__title--register" id="popup-title">Регистрация</h2>
+            <div class="modal__close-wrapper">
+              <button type="button" class="modal__close">
+                <svg role="img" aria-hidden="true" class="modal__icon" width="32" height="32">
+                  <use xlink:href="img/sprite.svg#icon-close"></use>
+                </svg>
+                <span class="visually-hidden">Закрыть модальное окно</span>
+              </button>
+            </div>
+          </div>
+          <form action="javascript:void(0);" class="modal__form form">
+            <label class="form__field">
+              <input type="text" name="organization" class="form__input" required>
+              <span class="form__label"><span class="form__required">•</span> Название организации (ИП)</span>
+            </label>
+            <div class="form__columns">
+              <label class="form__field">
+                <input type="text" name="inn" class="form__input">
+                <span class="form__label">ИНН</span>
+              </label>
+              <label class="form__field">
+                <input type="text" name="ogrn" class="form__input">
+                <span class="form__label">ОГРН</span>
+              </label>
+              <label class="form__field">
+                <input type="text" name="region" class="form__input" required>
+                <span class="form__label"><span class="form__required">•</span> Область / край</span>
+              </label>
+              <label class="form__field">
+                <input type="text" name="city" class="form__input" required>
+                <span class="form__label"><span class="form__required">•</span> Город</span>
+              </label>
+              <label class="form__field">
+                <input type="text" name="activity" class="form__input" required>
+                <span class="form__label"><span class="form__required">•</span> Вид деятельности</span>
+              </label>
+              <label class="form__field">
+                <input type="text" name="person" class="form__input" required>
+                <span class="form__label"><span class="form__required">•</span> Контактное лицо</span>
+              </label>
+              <label class="form__field">
+                <input type="tel" name="phone" class="form__input" required>
+                <span class="form__label"><span class="form__required">•</span> Ваш телефон</span>
+              </label>
+              <label class="form__field">
+                <input type="email" name="email" class="form__input" required>
+                <span class="form__label"><span class="form__required">•</span> Эл. почта</span>
+              </label>
+              <label class="form__field">
+                <input type="password" name="password" class="form__input" required autocomplete="new-password">
+                <span class="form__label"><span class="form__required">•</span> Пароль</span>
+              </label>
+              <label class="form__field">
+                <input type="password" name="confirm_password" class="form__input" required>
+                <span class="form__label"><span class="form__required">•</span> Подтверждение пароля</span>
+              </label>
+              <label class="form__field custom-checkbox">
+                <input type="checkbox" name="processing" class="custom-checkbox__input visually-hidden" required
+                  checked>
+                <span class="custom-checkbox__status"></span>
+                Согласие на обработку данных
+              </label>
+              <label class="form__field custom-checkbox">
+                <input type="checkbox" name="newsletter" class="custom-checkbox__input visually-hidden">
+                <span class="custom-checkbox__status"></span>
+                Подписаться на новости
+              </label>
+            </div>
+            <button type="submit" class="form__submit">Регистрация</button>
+            <p class="form__tooltip"><span>•</span> — поля, обязательные для заполнения.</p>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="page-footer">
-    <div class="page-footer__about">
-      <a class="page-footer__logo logo">
-        <img src="img/logo.svg" alt="ТвойУловОпт - лучший выбор в интернете" class="logo__img" width="289" height="86">
-        <span class="visually-hidden">На главную</span>
-      </a>
-      <p class="page-footer__text">Есть над чем задуматься: реплицированные с зарубежных источников, современные
-        исследования формируют глобальную </p>
-    </div>
-    <ul class="page-footer__menu menu-footer">
-      <li class="menu-footer__item">
-        <a href="javascript:void(0);" class="menu-footer__link">О нас</a>
-      </li>
-      <li class="menu-footer__item">
-        <a href="javascript:void(0);" class="menu-footer__link">Условия работы</a>
-      </li>
-      <li class="menu-footer__item">
-        <a href="javascript:void(0);" class="menu-footer__link">Прайс-лист</a>
-      </li>
-      <li class="menu-footer__item">
-        <a href="javascript:void(0);" class="menu-footer__link">Сделать заказ</a>
-      </li>
-      <li class="menu-footer__item">
-        <a href="javascript:void(0);" class="menu-footer__link">Розница</a>
-      </li>
-      <li class="menu-footer__item">
-        <a href="javascript:void(0);" class="menu-footer__link">Контакты</a>
-      </li>
-      <li class="menu-footer__item">
-        <a href="javascript:void(0);" class="menu-footer__link">Новости</a>
-      </li>
-      <li class="menu-footer__item">
-        <a href="javascript:void(0);" class="menu-footer__link">Статьи</a>
-      </li>
-    </ul>
-    <div class="page-footer__contacts contacts-footer">
-      <ul class="contacts-footer__phones phones-footer">
-        <li class="phones-footer__item">
-          <a href="+78129248527" class="phones-footer__link">8 (812) 924-85-27</a>
-        </li>
-        <li class="phones-footer__item">
-          <a href="+78003504627" class="phones-footer__link">8 (800) 350-46-27</a>
-        </li>
-      </ul>
-      <a href="mailto:info@tvoyulov.ru" class="contacts-footer__mail">info@tvoyulov.ru</a>
-      <p class="contacts-footer__text contacts-footer__text--hours">Пн – Пт с 10:00 до 18:00</p>
-      <p class="contacts-footer__text contacts-footer__text--address">Санкт-Петербург, ул. Маршала Новикова д. 28А, офис 207</p>
+    <div class="page-footer__wrapper wrapper">
+      <div class="page-footer__about">
+        <a class="page-footer__logo logo">
+          <img src="img/logo.svg" alt="ТвойУловОпт - лучший выбор в интернете" class="logo__img" width="289"
+            height="86">
+          <span class="visually-hidden">На главную</span>
+        </a>
+        <p class="page-footer__text">Есть над чем задуматься: реплицированные с зарубежных источников, современные
+          исследования формируют глобальную </p>
+      </div>
+      <div class="page-footer__center">
+        <ul class="page-footer__menu menu-footer">
+          <li class="menu-footer__item">
+            <a href="javascript:void(0);" class="menu-footer__link">О нас</a>
+          </li>
+          <li class="menu-footer__item">
+            <a href="javascript:void(0);" class="menu-footer__link">Условия работы</a>
+          </li>
+          <li class="menu-footer__item">
+            <a href="javascript:void(0);" class="menu-footer__link">Прайс-лист</a>
+          </li>
+          <li class="menu-footer__item">
+            <a href="javascript:void(0);" class="menu-footer__link">Сделать заказ</a>
+          </li>
+          <li class="menu-footer__item">
+            <a href="javascript:void(0);" class="menu-footer__link">Розница</a>
+          </li>
+        </ul>
+        <ul class="page-footer__menu menu-footer">
+          <li class="menu-footer__item">
+            <a href="javascript:void(0);" class="menu-footer__link">Контакты</a>
+          </li>
+          <li class="menu-footer__item">
+            <a href="javascript:void(0);" class="menu-footer__link">Новости</a>
+          </li>
+          <li class="menu-footer__item">
+            <a href="javascript:void(0);" class="menu-footer__link">Статьи</a>
+          </li>
+        </ul>
+      </div>
+      <div class="page-footer__contacts contacts-footer">
+        <ul class="contacts-footer__item contacts-footer__item--phones phones-footer">
+          <li class="phones-footer__item">
+            <a href="+78129248527" class="phones-footer__link">8 (812) 924-85-27</a>
+          </li>
+          <li class="phones-footer__item">
+            <a href="+78003504627" class="phones-footer__link">8 (800) 350-46-27</a>
+          </li>
+        </ul>
+        <a href="mailto:info@tvoyulov.ru" class="contacts-footer__item contacts-footer__item--mail">info@tvoyulov.ru</a>
+        <p class="contacts-footer__item contacts-footer__item--hours">Пн – Пт с 10:00 до 18:00</p>
+        <p class="contacts-footer__item contacts-footer__item--address">Санкт-Петербург, ул. Маршала Новикова д. 28А,
+          офис 207</p>
+      </div>
     </div>
   </footer>
+  <script src="vendors/graph-modal/graph-modal.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="js/script.min.js"></script>
 </body>
 
 </html>

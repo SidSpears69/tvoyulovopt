@@ -42,21 +42,42 @@
     background: none;
     border: none;
     padding: 0;
+    color: #2E3451;
+    cursor: pointer;
     &--prev {
         margin-right: 30px;
     }
     &--next {
         transform: rotate(180deg);
     }
+    &:hover,
+    &:focus {
+    color: #FB8C00;
+  }
+}
+.products__slider {
+  border: 1px solid #DFDFDF;
+  border-bottom: none;
+  border-right: none;
+  padding-bottom: 1px;
 }
 .products__list {
     display: flex;
     flex-wrap: wrap;
     padding: 0;
-    list-style: none;
     margin: 0;
+    box-sizing: border-box;
 }
 .products__item {
     width: 20%;
-    border: 1px solid #DFDFDF;
+    background-color: #ffffff;
+    border-right: 1px solid #DFDFDF;
+    border-bottom: 1px solid #DFDFDF;
+    height: auto;
+    &:first-child {
+      border-left: none;
+    }
+}
+.products__icon {
+  display: block;
 }
