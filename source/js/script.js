@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
       selectToggle.setAttribute("aria-expanded", "false");
     }
   });
-  document.addEventListener('click', (evt) => {
+  selectToggle && document.addEventListener('click', (evt) => {
     const target = evt.target;
     const itsSelectOptions = target == selectOptions || selectOptions.contains(target);
     const itsSelectToggle = target == selectToggle;

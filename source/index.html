@@ -43,12 +43,14 @@
         </nav>
         <ul class="page-header__users menu">
           <li class="menu__item">
-            <a href="javascript:void(0)" class="menu__link menu__link--user menu__link--enter" data-graph-path="popup"
-              data-graph-animation="fadeInUp" data-graph-speed="500" aria-controls="popup" aria-haspopup="true"
-              aria-expanded="false">Вход</a>
+            <a href="javascript:void(0)" class="menu__link menu__link--user menu__link--enter" data-graph-path="popup-enter"
+            data-graph-animation="fadeInUp" data-graph-speed="500" aria-controls="popup-enter" aria-haspopup="true"
+            aria-expanded="false">Вход</a>
           </li>
           <li class="menu__item">
-            <a href="javascript:void(0)" class="menu__link menu__link--user menu__link--register">Регистрация</a>
+            <a href="javascript:void(0)" class="menu__link menu__link--user menu__link--register" data-graph-path="popup"
+            data-graph-animation="fadeInUp" data-graph-speed="500" aria-controls="popup" aria-haspopup="true"
+            aria-expanded="false">Регистрация</a>
           </li>
         </ul>
       </div>
@@ -664,6 +666,37 @@
             </div>
             <button type="submit" class="form__submit">Регистрация</button>
             <p class="form__tooltip"><span>•</span> — поля, обязательные для заполнения.</p>
+          </form>
+        </div>
+      </div>
+      <div class="modal__container modal__content" role="dialog" aria-modal="true" data-graph-target="popup-enter" id="popup-enter"
+      aria-labelledby="popup-title-enter">
+        <div class="modal-content">
+          <div class="modal__header">
+            <h2 class="modal__title modal__title--enter" id="popup-title-enter">Вход</h2>
+            <div class="modal__close-wrapper">
+              <button type="button" class="modal__close">
+                <svg role="img" aria-hidden="true" class="modal__icon" width="32" height="32">
+                  <use xlink:href="img/sprite.svg#icon-close"></use>
+                </svg>
+                <span class="visually-hidden">Закрыть модальное окно</span>
+              </button>
+            </div>
+          </div>
+          <form action="javascript:void(0);" class="modal__form form">
+              <label class="form__field">
+                <input type="email" name="email-enter" class="form__input" placeholder="Эл. почта" required>
+                <span class="form__label"><span class="form__required">•</span> Эл. почта</span>
+              </label>
+              <label class="form__field">
+                <input type="password" name="password-enter" class="form__input" placeholder="Пароль" required autocomplete="new-password">
+                <span class="form__label"><span class="form__required">•</span> Пароль</span>
+              </label>
+              <div class="form__links">
+                <a href="javascript:void(0);" class="form__link">Забыли пароль</a>
+                <a href="javascript:void(0);" class="form__link">Зарегистрироваться</a>
+              </div>
+            <button type="submit" class="form__submit">Войти</button>
           </form>
         </div>
       </div>
