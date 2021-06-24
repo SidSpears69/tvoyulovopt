@@ -41,4 +41,17 @@ document.addEventListener("DOMContentLoaded", ()=> {
       modal.previousActiveElement.setAttribute("aria-expanded", false);
     }
   });
+  const productImagesLink = document.querySelectorAll(".product-images__link");
+  const productImagesBig = document.querySelector(".product-images__img--big");
+  productImagesLink.forEach((link) => {
+    link.addEventListener("click", (evt) => {
+      evt.preventDefault();
+      productImagesLink.forEach((link) => {
+        link.classList.remove("product-images__link--active")
+      })
+      productImagesBig.src = link.href;
+      link.classList.add("product-images__link--active");
+    })
+  })
 });
+
